@@ -1,0 +1,61 @@
+FEATURES,EXECUTION PATTERN,DATA SOURCES,Details,APIs Required
+LEGEND - EXECUTION PATTERNS,,,,,
+Webhook-driven,Real-time events from Shopify/Meta webhooks - instant processing when data changes,,,,,
+Cron (15-30 min),High-frequency scheduled jobs - runs every 15-30 minutes for critical monitoring,,,,,
+Cron (1-4 hrs),Medium-frequency scheduled jobs - runs every 1-4 hours for analysis,,,,,
+Cron (Daily),Daily scheduled jobs - runs once per day for heavy processing,,,,,
+Cron (Weekly),Weekly scheduled jobs - runs once per week for cleanup/reports,,,,,
+User-triggered,On-demand actions - executed when user clicks a button or makes a request,,,,,
+One-time setup,Initialization tasks - runs once during store setup/onboarding,,,,,
+LEGEND - DATA SOURCES,,,,,
+Only Shopify,Features that only need Shopify store data (products orders inventory),,,,,,
+Only Ads,Features that only need Meta/Facebook ads data (campaigns performance spend),,,,,,
+Both Shopify + Ads,Features that need both store data AND ads data for analysis,,,,,,
+Other (API creds),External APIs for authentication and credentials,,,,,,
+Other (Meta Ad Library TikTok X),External social media APIs for trend detection,,,,,,
+Other (user prefs),User settings and preferences stored in our system,,,,,,
+Other (competitor APIs),External APIs for competitor price/strategy monitoring,,,,,,
+Other (market APIs),External APIs for market events and industry data,,,,,,
+Other (webhook configs),Webhook management and configuration APIs,,,,,,
+Mix (Shopify + Ads + Other),Features combining multiple data sources,,,,,,
+LEGEND - COMMON TERMS,,,,,
+RPMo,Revenue Per Mille Organic - revenue per 1000 organic impressions,,,,,,
+CPA,Cost Per Acquisition - how much it costs to get one customer,,,,,,
+CTR,Click-Through Rate - percentage of people who click on ads,,,,,,
+AOV,Average Order Value - average amount spent per order,,,,,,
+SKU,Stock Keeping Unit - unique identifier for each product,,,,,,
+MoM,Month over Month - comparing current month to previous month,,,,,,
+UGC,User Generated Content - content created by customers,,,,,,
+Gen-AI,Generative AI - AI that creates content like images and text,,,,,,
+UTM,Urchin Tracking Module - tracking parameters in URLs,,,,,,
+OCR,Optical Character Recognition - reading text from images,,,,,,
+OAuth Setup,One-time setup,Other (API creds),Initial OAuth flow,Shopify OAuth
+Order Attribution,Webhook-driven,Only Shopify,orders/create orders/paid,Shopify Admin API (read_orders)
+Product Sync,Webhook-driven,Only Shopify,products/create products/update,Shopify Admin API (read_products)
+Inventory Updates,Webhook-driven,Only Shopify,inventory_levels/update,Shopify Admin API (read_inventory)
+Ad Performance Monitoring,Webhook-driven,Only Ads,ads_insights campaigns,Meta Marketing API (ads_read)
+Creative Fatigue Detection,Cron (15-30 min),Only Ads,Performance drop analysis,Meta Marketing API (ads_read)
+Budget Waste Detection,Cron (15-30 min),Only Ads,Budget threshold monitoring,Meta Marketing API (ads_read)
+Diagnostics (Why Ads Fail),Cron (1-4 hrs),Both Shopify + Ads,Scheduled analysis,Shopify + Meta APIs
+SKU Performance Analysis,Cron (1-4 hrs),Only Shopify,MoM trend analysis,Shopify Admin API (read_products)
+Suggestions (What to Promote),User-triggered,Both Shopify + Ads,On-demand API call,Shopify + Meta APIs
+Trend Detection,Cron (15-30 min),Other (Meta Ad Library TikTok X),Meta Ad Library TikTok X polling,Meta Ad Library TikTok X APIs
+Trend Replication,User-triggered,Mix (Shopify + Ads + Other),Gen-AI creative generation,Shopify + Meta + Gen-AI APIs
+1-Click Campaign Launch,User-triggered,Both Shopify + Ads,Direct Meta API call,Shopify + Meta APIs
+1-Click Ad Pause,User-triggered,Only Ads,Direct Meta API call,Meta Marketing API (ads_management)
+Bundle Creation,User-triggered,Only Shopify,Shopify API call,Shopify Admin API (write_products)
+Price Updates,User-triggered,Only Shopify,Shopify API call,Shopify Admin API (write_products)
+Manual Data Sync,User-triggered,Both Shopify + Ads,Force refresh button,Shopify + Meta APIs
+A/B Test Creation,User-triggered,Only Ads,Meta API variant creation,Meta Marketing API (ads_management)
+Dashboard Views,User-triggered,Both Shopify + Ads,Real-time data display,Shopify + Meta APIs
+Report Export,User-triggered,Both Shopify + Ads,PDF/CSV generation,Shopify + Meta APIs
+Settings Management,User-triggered,Other (user prefs),User preference updates,User settings API
+Historical Data Import,One-time setup,Both Shopify + Ads,Historical data import,Shopify + Meta APIs
+AI Model Training,Cron (Daily),Both Shopify + Ads,ML model retraining,Shopify + Meta APIs
+AI Cold-Start,One-time setup,Mix (Shopify + Ads + Other),Meta Ad Library priors,Shopify + Meta + Meta Ad Library APIs
+Baseline Metrics,One-time setup,Both Shopify + Ads,Performance benchmarks,Shopify + Meta APIs
+Data Cleanup,Cron (Weekly),Mix (Shopify + Ads + Other),Data archiving,Shopify + Meta + External APIs
+Co-purchase Analysis,Cron (Daily),Only Shopify,Purchase pattern analysis,Shopify Admin API (read_orders)
+Competitor Monitoring,Cron (1-4 hrs),Other (competitor APIs),Price/strategy tracking,Competitor APIs
+Market Events,Cron (1-4 hrs),Other (market APIs),Holiday/event detection,Market data APIs
+Webhook Registration,One-time setup,Other (webhook configs),Webhook endpoint setup,Webhook management APIs
